@@ -14,7 +14,8 @@ Remove a nominee from the nomination list
 - Movies in search results can be added and removed from the nomination list.
 - If a search result has already been nominated, disable its nominate button.
 Display a banner when the user has 5 nominations.
-<img width=“620” alt=“Screen Shot 2021-02-08 at 11 25 38 PM” src=“https://user-images.githubusercontent.com/5440293/107315599-0b5fc900-6a65-11eb-8257-8913c6ec3631.png”>
+<img width="620" alt="shoppies" src="https://user-images.githubusercontent.com/24625190/199058461-7d5a11c0-1763-4882-a299-b660e2793782.png">
+
 ### Extras
 There is a lot to be improved on here, you can polish the required features by crafting a nicer design, or improve the app by adding new features! Choose something that you feel best showcases your passion and skills.
 If you need inspiration, here are examples of what you can work on. If you work on these ideas, we recommend choosing only one or two.
