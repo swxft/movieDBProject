@@ -6,7 +6,6 @@ const {
   GraphQLList,
 } = require("graphql");
 
-const MovieRating = require("./movie_rating");
 const MovieType = new GraphQLObjectType({
   name: "MovieType",
   fields: {
@@ -40,11 +39,11 @@ const MovieType = new GraphQLObjectType({
     },
     writer: {
       type: GraphQLList(GraphQLString),
-      resolve: (result) => result.Writer.split(“, “),
+      resolve: (result) => result.Writer.split(", "),
     },
     actors: {
       type: GraphQLList(GraphQLString),
-      resolve: (result) => result.Actors.split(“, “),
+      resolve: (result) => result.Actors.split(", "),
     },
     plot: {
       type: GraphQLString,

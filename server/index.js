@@ -1,7 +1,7 @@
 const graphqlHTTP = require("express-graphql");
 const express = require("express");
 const { graphql } = require("graphql");
-//const omdbSchema = require("./schema/schema");
+const omdbSchema = require("./schema/schema");
 const app = express();
 // CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
 app.use(function (req, res, next) {
@@ -18,10 +18,10 @@ app.use(function (req, res, next) {
     next();
   }
 });
-// app.use(
-//   “/graphql”,
-//   graphqlHTTP({
-//     schema: omdbSchema,
-//   })
-// );
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema: omdbSchema,
+  })
+);
 app.listen(3000, () => console.log("running express on port 3000!"));
