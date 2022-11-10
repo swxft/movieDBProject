@@ -25,4 +25,5 @@ app.use(
     schema: omdbSchema,
   })
 );
+
 app.listen(3000, () => console.log("running express on port 3000!"));

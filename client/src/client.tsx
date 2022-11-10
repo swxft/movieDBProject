@@ -3,15 +3,33 @@ import ReactDom from "react-dom";
 import App from "./App";
 import { createGraphiQLFetcher } from '@graphiql/toolkit';
 import { GraphiQL } from 'graphiql';
-import 'graphiql/graphiql.css';
+import {
+    createBrowserRouter,
+    RouterProvider,
+  } from "react-router-dom";
 
-const fetcher = createGraphiQLFetcher({
-    url: 'http://localhost:3000/graphql',
-  });
+  const fetcher = createGraphiQLFetcher({
+      url: 'http://localhost:3000/graphql',
+    });
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <App/>,
+    },
+    {
+      path: "/debug",
+      element: <GraphiQL fetcher={fetcher} />,
+    },
+  ]);
+
 
 
 const appContainer = document.getElementById('root');
 ReactDom.render(
-    <GraphiQL fetcher={fetcher} />,
-    appContainer,
+    <React.StrictMode>
+        <RouterProvider router={router} />
+    </React.StrictMode>,
+    appContainer
 );
+
