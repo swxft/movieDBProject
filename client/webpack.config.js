@@ -4,8 +4,6 @@ const webpack = require('webpack');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
-console.log("HELLO+===================")
-
 module.exports = {
   entry: './src/client.tsx',
   mode: isDevelopment ? 'development' : 'production',
