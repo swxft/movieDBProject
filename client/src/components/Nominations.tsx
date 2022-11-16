@@ -3,9 +3,12 @@ import React from 'react'
 const Nominations = () => {
     return (
       <>
-        <div>
+        <div className='Card'>
+          <h3>Nominations.</h3>
           <ul>
-            <li> Rambo (1999) </li>
+            <li> Rambo (1999)
+              <button>Nominate</button>
+            </li>
           </ul>
         </div>
       </>

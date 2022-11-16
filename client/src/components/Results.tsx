@@ -3,14 +3,13 @@ import React from 'react'
 const Results = () => {
     return (
       <>
-        <div>
+        <div className='Card'>
+          <h3>Results for ...</h3>
           <ul>
-            <li> Rambo (1999) </li>
-            <li> Hey Ram (1998) </li>
-            <li> Ram Das Going Home (2007) </li>
+              <li></li>
           </ul>
         </div>
       </>
     );
-  }
+  }  
 export default Results;

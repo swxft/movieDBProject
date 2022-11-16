@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  entry: './src/client.tsx',
+  entry: './src/components/client.tsx',
   mode: isDevelopment ? 'development' : 'production',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
