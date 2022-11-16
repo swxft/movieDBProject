@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@babel/plugin-transform-destructuring": "^7.20.2"
+  }
+}

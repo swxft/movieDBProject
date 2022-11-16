@@ -5,7 +5,10 @@ import Results from "./components/Results";
 import { fetchGraphQL } from './util/fetchGraphQL';
 
 export default function App() {
-  const [a, b] = useState();
+  const state = useState([]);
+  const results = state[0];
+  const setResults = state[1];
+
   // on mount
   useEffect(() => {
     getResults();
@@ -24,8 +27,7 @@ export default function App() {
       }
     }
     `).then((jsonObject) => {
-      console.log(jsonObject)
-
+      setResults(jsonObject.data.search.movies)
     });
   }
 
@@ -33,7 +35,7 @@ export default function App() {
     <>
     <Search />
     <Nominations />
-    <Results results={undefined} />
+    <Results results={results} />
     </>
   );
 }
