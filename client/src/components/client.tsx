@@ -22,10 +22,6 @@ import Results from "./Results";
       path: "/debug",
       element: <GraphiQL fetcher={fetcher} />,
     },
-    {
-      path: "/search/:searchTerm",
-      element: <Results/>,
-    },
   ]);
 
 

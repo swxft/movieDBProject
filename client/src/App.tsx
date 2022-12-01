@@ -9,10 +9,15 @@ export default function App() {
   const results = state[0];
   const setResults = state[1];
 
-  // on mount
+  const nomListState = useState([]);
+  const nomListItems = nomListState[0];
+  const setnomListItems = nomListState[1];
+
+  // on mount, run once
   useEffect(() => {
     getResults();
   }, []);
+
 
   function getResults() {
     fetchGraphQL(`
@@ -33,9 +38,8 @@ export default function App() {
 
   return (
     <>
-    <Search />
-    <Nominations />
-    <Results results={results} />
+    {/* <Nominations nomListItems={nomListItems} /> */}
+    <Results results={results}/>
     </>
   );
 }

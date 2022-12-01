@@ -5,6 +5,7 @@
     "private": true,
     "main": "webpack.config.js",
     "dependencies": {
+        "@babel/runtime": "7.0.0-beta.55",
         "@graphiql/toolkit": "^0.8.0",
         "@material-ui/core": "3.2.0",
         "@material-ui/icons": "3.0.1",
