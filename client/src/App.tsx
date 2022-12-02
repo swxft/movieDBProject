@@ -6,13 +6,10 @@ import { fetchGraphQL } from './util/fetchGraphQL';
 import { ListItem } from "@material-ui/core";
 
 export default function App() {
-  const state = useState([]);
-  const results = state[0];
-  const setResults = state[1];
+  const [results, setResults]= useState([]);
 
   const [nomListItems,  setNomListItems] = useState([]);
   
-
   // on mount, run once
   useEffect(() => {
     getResults("elf");
@@ -20,6 +17,7 @@ export default function App() {
 
 
   function getResults(userQuery) {
+    console.log(userQuery)
     fetchGraphQL(`
     query {
       search(searchTerm: "${userQuery}") {
@@ -32,7 +30,12 @@ export default function App() {
       }
     }
     `).then((jsonObject) => {
-      setResults(jsonObject.data.search.movies)
+      if (jsonObject.data.search.movies == null) {
+        setResults([])
+
+      } else {
+        setResults(jsonObject.data.search.movies)
+      }
     });
   }
 
@@ -46,16 +49,16 @@ export default function App() {
 
   function onRemoveNom(element) {
     const removeItemList = nomListItems.filter((item) => {
-      item.imdbID !== element.imdbID
+      return item.imdbID !== element.imdbID
     })
+
     setNomListItems(removeItemList)
   }
-  // const maxNomsReached = nomListItems >= 5
 
   return (
     <>
     <Search onSearch={onSearch}/>
-    <Results results={results} onAddNom={onAddNom}/>
+    <Results results={results} onAddNom={onAddNom} nomListItems={nomListItems}/>
     <Nominations nomListItems={nomListItems} onRemoveNom={onRemoveNom}/>
     </>
   );
