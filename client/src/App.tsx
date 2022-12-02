@@ -3,6 +3,7 @@ import Nominations from './components/Nominations';
 import Search from "./components/Search";
 import Results from "./components/Results";
 import { fetchGraphQL } from './util/fetchGraphQL';
+import { ListItem } from "@material-ui/core";
 
 export default function App() {
   const state = useState([]);
@@ -40,17 +41,22 @@ export default function App() {
   }
 
   function onAddNom(result) {
-    console.log("onAddNom", result);
-    var list = [...nomListItems];
-    list.push(result);
-    setNomListItems(list);
+    setNomListItems([...nomListItems, result]);
   }
+
+  function onRemoveNom(element) {
+    const removeItemList = nomListItems.filter((item) => {
+      item.imdbID !== element.imdbID
+    })
+    setNomListItems(removeItemList)
+  }
+  // const maxNomsReached = nomListItems >= 5
 
   return (
     <>
     <Search onSearch={onSearch}/>
     <Results results={results} onAddNom={onAddNom}/>
-    <Nominations nomListItems={nomListItems} />
+    <Nominations nomListItems={nomListItems} onRemoveNom={onRemoveNom}/>
     </>
   );
 }

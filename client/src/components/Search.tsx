@@ -11,7 +11,7 @@ function Search({onSearch}) {
     <div className="Card">
         <div className="logo">Movie Title 🔍</div>
         <form>
-        <input type="text" name="name" value={userQuery} onChange={(event) => setUserQuery(event.target.value)} />
+        <input type="text" name="name" placeholder="Enter a movie title" value={userQuery} onChange={(event) => setUserQuery(event.target.value)} />
         <button type="button" onClick={onClickSearch} >Search</button>
         </form>
       <div className="user-image">

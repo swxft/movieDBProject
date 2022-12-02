@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
 const Results = ({results, onAddNom}) => {
-  console.log(results)
-  const resultLI = results.map((results) => 
-    <li key={results.title}>{results.title}
-    <button onClick={() => onAddNom(results)}> Nominate</button></li>
+  console.log(results.length)
+  const resultLI = results.map((result) => 
+    <li key={result.imdbID}>{result.title}
+    <button onClick={() => onAddNom(result)}> Nominate</button></li>
   );
     return (
       <>
