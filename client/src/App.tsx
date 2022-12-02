@@ -9,20 +9,19 @@ export default function App() {
   const results = state[0];
   const setResults = state[1];
 
-  const nomListState = useState([]);
-  const nomListItems = nomListState[0];
-  const setnomListItems = nomListState[1];
+  const [nomListItems,  setNomListItems] = useState([]);
+  
 
   // on mount, run once
   useEffect(() => {
-    getResults();
+    getResults("elf");
   }, []);
 
 
-  function getResults() {
+  function getResults(keyword) {
     fetchGraphQL(`
     query {
-      search(searchTerm: "elf") {
+      search(searchTerm: "${keyword}") {
         totalResults
         movies {
           title
@@ -36,10 +35,26 @@ export default function App() {
     });
   }
 
+  function onSearch(keyword) {
+    console.log("onSearch", keyword)
+    getResults(keyword);
+  }
+
+  function onAddFav(result) {
+    console.log("onAddFav", result);
+    var list = [...nomListItems];
+    list.push(result);
+    setNomListItems(list);
+
+    console.log("list", list);
+  }
+
   return (
     <>
+    <Search onSearch={onSearch}/>
     {/* <Nominations nomListItems={nomListItems} /> */}
-    <Results results={results}/>
+    <Results results={results} onAddFav={onAddFav}/>
+    <Nominations nomListItems={nomListItems} />
     </>
   );
 }
