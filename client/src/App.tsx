@@ -18,10 +18,10 @@ export default function App() {
   }, []);
 
 
-  function getResults(keyword) {
+  function getResults(userQuery) {
     fetchGraphQL(`
     query {
-      search(searchTerm: "${keyword}") {
+      search(searchTerm: "${userQuery}") {
         totalResults
         movies {
           title
@@ -35,25 +35,21 @@ export default function App() {
     });
   }
 
-  function onSearch(keyword) {
-    console.log("onSearch", keyword)
-    getResults(keyword);
+  function onSearch(userQuery) {
+    getResults(userQuery);
   }
 
-  function onAddFav(result) {
-    console.log("onAddFav", result);
+  function onAddNom(result) {
+    console.log("onAddNom", result);
     var list = [...nomListItems];
     list.push(result);
     setNomListItems(list);
-
-    console.log("list", list);
   }
 
   return (
     <>
     <Search onSearch={onSearch}/>
-    {/* <Nominations nomListItems={nomListItems} /> */}
-    <Results results={results} onAddFav={onAddFav}/>
+    <Results results={results} onAddNom={onAddNom}/>
     <Nominations nomListItems={nomListItems} />
     </>
   );

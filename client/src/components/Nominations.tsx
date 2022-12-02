@@ -1,11 +1,6 @@
 import React from 'react'
 
 const Nominations = ({nomListItems}) => {
-  // const nomsLI = nomListItems.map((movie, index) => {}
-  // const nomsLI = nomListItems.map((nomListItems) => 
-  // <li key={index}>{nomListItems}</li>
-    // resultLI = results.map((results) => <li key={index}>{nomListItems}
-    console.log("nomListItems", nomListItems);
     return (
       <>
         <div className='Card'>
