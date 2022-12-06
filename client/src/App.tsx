@@ -10,12 +10,6 @@ export default function App() {
   const [results, setResults] = useStateLS([], 'results');
 
   const [nomListItems,  setNomListItems] = useStateLS([], 'nominations');
-  
-  // on mount, run once
-  // useEffect(() => {
-  //   getResults("elf");
-  // }, []);
-
 
   function getResults(userQuery) {
     console.log(userQuery)
