@@ -7,7 +7,7 @@ const Results = ({results, onAddNom, nomListItems}) => {
   const resultLI = results.map((result) => {
     return (
       <li key={result.imdbID}>{result.title}{result.year}
-        <button onClick={() => onAddNom(result)} disabled={nomListItems.includes(result)}> Nominate</button>
+        <button onClick={() => onAddNom(result)} disabled={nomListItems.includes(result)}> Nominate </button>
       </li>
     );
   });

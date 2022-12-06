@@ -2,18 +2,19 @@ import React, {useEffect, useState} from "react";
 import Nominations from './components/Nominations';
 import Search from "./components/Search";
 import Results from "./components/Results";
+import useStateLS from "./util/useStatewithLocalStorage";
 import { fetchGraphQL } from './util/fetchGraphQL';
-import { ListItem } from "@material-ui/core";
+// import { ListItem } from "@material-ui/core";
 
 export default function App() {
-  const [results, setResults]= useState([]);
+  const [results, setResults] = useStateLS([], 'results');
 
-  const [nomListItems,  setNomListItems] = useState([]);
+  const [nomListItems,  setNomListItems] = useStateLS([], 'nominations');
   
   // on mount, run once
-  useEffect(() => {
-    getResults("elf");
-  }, []);
+  // useEffect(() => {
+  //   getResults("elf");
+  // }, []);
 
 
   function getResults(userQuery) {

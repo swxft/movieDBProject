@@ -1,8 +1,8 @@
-import {useState} from 'react';
+import useStateLS from "../util/useStatewithLocalStorage";
 import React from 'react'
 
 function Search({onSearch}) {
-  const [userQuery, setUserQuery] = useState("");
+  const [userQuery, setUserQuery] = useStateLS('', 'userQuery');
 
   const onClickSearch = (event) => {
     onSearch(userQuery)
