@@ -11,7 +11,7 @@ export default function App() {
 
   const [nomListItems,  setNomListItems] = useStateLS([], 'nominations');
 
-  function getResults(userQuery) {
+  function getResults(userQuery: any) {
     console.log(userQuery)
     fetchGraphQL(`
     query {
@@ -34,17 +34,17 @@ export default function App() {
     });
   }
 
-  function onSearch(userQuery) {
+  function onSearch(userQuery: any) {
     getResults(userQuery);
   }
 
-  function onAddNom(result) {
+  function onAddNom(result: any) {
     setNomListItems(() => ([...nomListItems, result]));
   }
 
-  function onRemoveNom(element) {
-    setNomListItems((existingItems) => {
-      return existingItems.filter((item) => {
+  function onRemoveNom(element: { imdbID: any; }) {
+    setNomListItems((existingItems: any[]) => {
+      return existingItems.filter((item: { imdbID: any; }) => {
         return item.imdbID !== element.imdbID
       })
     })
