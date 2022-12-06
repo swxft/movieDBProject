@@ -39,3 +39,7 @@ input {
   border: none;
   width: 50%;
 }
+
+*:disabled {
+  color: gray;
+}
