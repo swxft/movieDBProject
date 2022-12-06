@@ -39,15 +39,18 @@ export default function App() {
   }
 
   function onAddNom(result) {
-    setNomListItems([...nomListItems, result]);
+    setNomListItems(() => ([...nomListItems, result]));
   }
 
   function onRemoveNom(element) {
-    const removeItemList = nomListItems.filter((item) => {
-      return item.imdbID !== element.imdbID
+    setNomListItems((existingItems) => {
+      return existingItems.filter((item) => {
+        return item.imdbID !== element.imdbID
+      })
     })
-
-    setNomListItems(removeItemList)
+  }
+  function clearNominations() {
+    setNomListItems([])
   }
 
   return (
@@ -55,6 +58,7 @@ export default function App() {
     <Search onSearch={onSearch}/>
     <Results results={results} onAddNom={onAddNom} nomListItems={nomListItems}/>
     <Nominations nomListItems={nomListItems} onRemoveNom={onRemoveNom}/>
+    <div><button onClick={clearNominations}>Clear Nominations</button></div>
     </>
   );
 }

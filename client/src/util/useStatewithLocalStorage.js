@@ -5,11 +5,13 @@ const useStateLS = (initialState, lsKey) => {
   
   const [state, setState] = useState(lsValue || initialState)
 
-  const setLsState = (newState) => {
-    setState(oldState => {
-      localStorage.setItem(lsKey, JSON.stringify(newState));
-      return newState;
-    })
+  const setLsState = (param) => {
+    if(typeof param === 'function') {
+      setLsState(param(state));
+    } else {
+      setState(param);
+      localStorage.setItem(lsKey, JSON.stringify(param));
+    }
   }
   return [state, setLsState]
 }
